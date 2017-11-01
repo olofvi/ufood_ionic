@@ -1,7 +1,7 @@
 h3 {
   font-size: 3em;
   text-align: center;
-  color: #e1a332; }
+  color: #730E15; }
 
 .feel {
   text-align: center;
@@ -9,7 +9,13 @@ h3 {
 
 .button {
   background-color: #e1a332;
-  color: #730E15;
-  padding: 7%; }
+  color: white;
+  padding: 8%; }
+
+.button-inner {
+  font-size: 2em; }
+
+.toolbar-title {
+  font-size: 2em; }
 
 /*# sourceMappingURL=home.css.map */
