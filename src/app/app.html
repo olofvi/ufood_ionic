@@ -5,6 +5,9 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="side">
+    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      {{p.title}}
+    </button>
   </ion-content>
 
 </ion-menu>
