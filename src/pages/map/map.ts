@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 declare var google: any;
+import { RestaurantsProvider } from '../providers/restaurants/restaurants';
+
 
 
 @IonicPage()

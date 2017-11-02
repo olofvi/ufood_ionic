@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -8,12 +10,16 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {MapPage} from "../pages/map/map";
+import { RestaurantsProvider } from '../providers/restaurants/restaurants';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    MapPage
+    MapPage,
+    HttpModule,
+    RouterModule
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,8 @@ import {MapPage} from "../pages/map/map";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestaurantsProvider
   ]
 })
 export class AppModule {}
