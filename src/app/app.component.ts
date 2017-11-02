@@ -19,6 +19,7 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
+
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
@@ -36,9 +37,5 @@ export class MyApp {
 
   openPage(page) {
     this.nav.setRoot(page.component);
-  }
-
-  public get(endpoint: 'https://ufoods.herokuapp.com/api/v1/restaurants') {
-  return this.supplement(this.req.get, endpoint);
   }
 }
