@@ -1,55 +1,46 @@
 .side {
-  background-color: #e1a332;
-}
+  background-color: #e1a332; }
 
 .toolbar-background {
-  background-color: #e1a332;
-}
+  background-color: #e1a332; }
 
 .toolbar-title {
-  color: white;
-}
+  color: white; }
 
-.ufood-title{
+.ufood-title {
   font-size: 5em;
   text-align: center;
   padding-bottom: 10px;
-  color: #730E15;
-}
+  color: #730E15; }
 
 .container_home {
   position: relative;
-  color: transparent;
-}
+  color: transparent; }
 
 .feel {
   text-align: center;
-  color: #730E15;
-}
+  color: #730E15; }
 
 .button {
   background-color: #e1a332;
   color: white;
-  padding: 8%;
-}
+  padding: 8%; }
 
 .button-inner {
-  font-size: 2em;
-}
+  font-size: 2em; }
 
 .toolbar-title {
-  font-size: 2em;
-}
+  font-size: 2em; }
 
 .ufood-logo {
   width: auto;
   height: auto;
   opacity: 0.4;
-  margin-top: 7px;
-}
+  margin-top: 7px; }
 
 .wheat-img {
   width: auto;
   height: 150px;
-  padding-top: 40px;
-}
+  padding-top: 40px; }
+
+/*# sourceMappingURL=app.css.map */
