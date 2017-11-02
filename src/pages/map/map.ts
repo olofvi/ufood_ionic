@@ -37,9 +37,16 @@ export class MapPage {
   }
 
   addMarker(position, map){
-    return new google.maps.Marker({
+    let marker = new google.maps.Marker({
       position,
       map
+    });
+    let content = "<p>This is your current position !</p>";
+    let infoWindow = new google.maps.InfoWindow({
+      content: content
+    });
+    google.maps.event.addListener(marker, 'click', () => {
+      infoWindow.open(this.map, marker);
     });
   }
 
@@ -49,5 +56,4 @@ export class MapPage {
       this.addMarker(location, this.map);
     })
   }
-
 }
