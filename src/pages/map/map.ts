@@ -9,7 +9,6 @@ declare var google: any;
   templateUrl: 'map.html',
 })
 export class MapPage {
-  map: any;
   @ViewChild('map') mapRef: ElementRef;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -22,6 +21,14 @@ export class MapPage {
   showMap() {
     const location = new google.maps.LatLng(59.4024341, 17.946482400000036);
     const options = {center: location, zoom: 15};
-    this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+    const map = new google.maps.Map(this.mapRef.nativeElement, options);
+    this.addMarker(location, map);
+  }
+
+  addMarker(position, map){
+    return new google.maps.Marker({
+      position,
+      map
+    });
   }
 }
