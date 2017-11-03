@@ -25,40 +25,35 @@ export class MapPage {
   ) {}
 
   ionViewDidLoad() {
-    this.showMap();
-    this.restaurantsProvider.getRestaurants()
-      .subscribe(data => {
-        this.restaurants = data.restaurants;
-        this.addToMap()
-;      });
+    this.getUserPosition();
   }
 
   showMap(lat, long) {
     const location = new google.maps.LatLng(lat, long);
     const options = {center: location, zoom: 15};
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-    this.addMarker(location, this.map);
-    this.getUserPosition();
+    this.addMarker(location, '', this.map);
   }
 
-  addMarker(position, map){
+  addMarker(position, content, map){
     let marker = new google.maps.Marker({
       position,
       map
     });
-    let content = "<p>This is your current position !</p>";
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
     google.maps.event.addListener(marker, 'click', () => {
-      infoWindow.open(this.map, marker);
+      infoWindow.open(map, marker);
     });
   }
 
   addToMap() {
     this.restaurants.forEach((restaurant) => {
       let location = new google.maps.LatLng(restaurant.latitude, restaurant.longitude);
-      this.addMarker(location, this.map);
+      let content = `<h4>${restaurant.name}</h4><p>${restaurant.description}</p>`
+
+      this.addMarker(location, content, this.map);
     })
   }
 
@@ -72,7 +67,11 @@ export class MapPage {
 
       console.log(pos);
       this.showMap(pos.coords.latitude,pos.coords.longitude);
-
+      this.restaurantsProvider.getRestaurants()
+        .subscribe(data => {
+          this.restaurants = data.restaurants;
+          this.addToMap();
+        });
     },(err : PositionError)=>{
       console.log("error : " + err.message);
     })
